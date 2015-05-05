@@ -221,7 +221,7 @@ function build_dependencies() {
     npm install --unsafe-perm --quiet --userconfig $build_dir/.npmrc 2>&1 | indent
   fi
 
-  grunt heroku:deployment
+  grunt heroku:${NODE_ENV:-production}
 }
 
 ensure_procfile() {
