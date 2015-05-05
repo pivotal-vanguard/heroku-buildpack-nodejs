@@ -52,6 +52,7 @@ fi
 install_npm
 install_sass
 install_grunt
+install_hologram
 
 ####### Build the project's dependencies
 

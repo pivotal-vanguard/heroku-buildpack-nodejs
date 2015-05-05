@@ -190,6 +190,20 @@ install_grunt() {
   info "`grunt --version`"
 }
 
+install_hologram() {
+  mkdir -p /app/gems
+  export GEM_HOME=/app/gems
+
+  gem install hologram
+
+  # make it executable & add it to the PATH
+  GEM_BIN_PATH=${GEM_HOME}/bin
+  chmod +x ${GEM_BIN_PATH}/*
+  PATH=${GEM_BIN_PATH}:$PATH
+
+  info "`hologram -v` installed"
+}
+
 function build_dependencies() {
 
   if [ "$modules_source" == "" ]; then
