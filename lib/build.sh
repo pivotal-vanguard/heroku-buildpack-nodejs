@@ -175,7 +175,7 @@ install_sass() {
   mkdir -p /app/gems
   export GEM_HOME=/app/gems
 
-  gem install sass
+  gem install sass --no-ri --no-rdoc
 
   # make it executable & add it to the PATH
   GEM_BIN_PATH=${GEM_HOME}/bin
@@ -194,7 +194,7 @@ install_hologram() {
   mkdir -p /app/gems
   export GEM_HOME=/app/gems
 
-  gem install hologram
+  gem install hologram --no-ri --no-rdoc
 
   # make it executable & add it to the PATH
   GEM_BIN_PATH=${GEM_HOME}/bin
