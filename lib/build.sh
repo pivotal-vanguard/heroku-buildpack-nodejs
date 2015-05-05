@@ -171,6 +171,25 @@ install_npm() {
   fi
 }
 
+install_sass() {
+  mkdir -p /app/gems
+  export GEM_HOME=/app/gems
+
+  gem install sass
+
+  # make it executable & add it to the PATH
+  GEM_BIN_PATH=${GEM_HOME}/bin
+  chmod +x ${GEM_BIN_PATH}/*
+  PATH=${GEM_BIN_PATH}:$PATH
+
+  info "`sass -v` installed"
+}
+
+install_grunt() {
+  npm install -g grunt-cli
+  info "`grunt --version`"
+}
+
 function build_dependencies() {
 
   if [ "$modules_source" == "" ]; then
@@ -187,6 +206,8 @@ function build_dependencies() {
     info "Installing node modules"
     npm install --unsafe-perm --quiet --userconfig $build_dir/.npmrc 2>&1 | indent
   fi
+
+  grunt heroku:deployment
 }
 
 ensure_procfile() {

@@ -50,6 +50,8 @@ else
   install_iojs "$iojs_engine"
 fi
 install_npm
+install_sass
+install_grunt
 
 ####### Build the project's dependencies
 
